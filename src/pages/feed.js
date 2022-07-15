@@ -13,7 +13,7 @@ const Feed = ({ user, setter }) => {
   return (
     <div>
       <Navbar user={user} setter={setter} />
-      <h1>{user}Feed</h1>
+      <h1>{user}'s Feed</h1>
       {photos.map((item, i) => {
         return <Image key={i} author={item.author} url={item.download_url} />;
       })}

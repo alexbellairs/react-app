@@ -1,26 +1,26 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 const Navbar = ({ user, setter }) => {
   return (
-    <div>
+    <div className="navbar">
       {!user && <Navigate to="/" />}
       <button>
-        <a href="/home">Home</a>
+        <Link to="/home">Home</Link>
       </button>
       <button>
-        <a href="/feed">Feed</a>
+        <Link to="/feed">Feed</Link>
       </button>
       <button>
-        <a href="/profile">Profile</a>
+        <Link to="/profile">Profile</Link>
       </button>
-      {/* <button
+      <button
         onClick={() => {
-          setter();
+          setter("");
           localStorage.removeItem("myToken");
         }}
       >
         Log Out
-      </button> */}
+      </button>
     </div>
   );
 };

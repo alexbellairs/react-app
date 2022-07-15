@@ -8,16 +8,6 @@ const Home = ({ user, setter }) => {
       <h1>Home Page</h1>
       <h2>Welcome {user}</h2>
       <img className="blimp" src={blimpImg} />
-      <div>
-        <button
-          onClick={() => {
-            setter();
-            localStorage.removeItem("myToken");
-          }}
-        >
-          Log Out
-        </button>
-      </div>
     </div>
   );
 };

@@ -28,27 +28,42 @@ const Profile = ({ user, setter }) => {
   return (
     <div>
       <Navbar user={user} setter={setter} />
-      <h1>{user}Profile</h1>
+      <h1>{user}'s Profile</h1>
       <div className="main">
         {photos.map((item, i) => {
           return <ProImage key={i} url={item.download_url} />;
         })}
       </div>
-      <form onSubmit={submitHandler}>
-        <h2>Update Profile</h2>
-        <input
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
-        />
-        <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-        <input
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          type="password"
-        />
-        <button type="submit">Update</button>
-      </form>
-      <button onClick={() => deleteFetch(setter)}>Delete Account</button>
+      <div className="navbar">
+        <form onSubmit={submitHandler}>
+          <h2>Update Profile</h2>
+          <input
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+            className="input"
+          />
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            className="input"
+          />
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            type="password"
+            className="input"
+          />
+          <button type="submit">Update</button>
+        </form>
+      </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <div>
+        <button className="but" onClick={() => deleteFetch(setter)}>
+          Delete Account
+        </button>
+      </div>
     </div>
   );
 };

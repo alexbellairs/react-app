@@ -26,21 +26,26 @@ const Login = ({ user, setter }) => {
         <input
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
+          className="input"
         />
         {!logBool && (
           <input
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
+            className="input"
           />
         )}
         <input
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           type="password"
+          className="input"
         />
-        <button type="submit">{logBool ? "Log In" : "Sign Up"}</button>
+        <button type="submit" className="but">
+          {logBool ? "Log In" : "Sign Up"}
+        </button>
       </form>
-      <button onClick={() => setLogBool(!logBool)}>
+      <button onClick={() => setLogBool(!logBool)} className="but">
         {logBool ? "Don't" : "Already"} have an account?
       </button>
     </div>

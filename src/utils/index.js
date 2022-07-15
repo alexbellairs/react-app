@@ -54,6 +54,7 @@ export const tokenFetch = async (setter) => {
 
 export const updateFetch = async (filterObj, updateObj, setter) => {
   try {
+    console.log(filterObj, updateObj);
     const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
