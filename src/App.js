@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Login from "./pages/login";
 import Home from "./pages/home";
 import Feed from "./pages/feed";
@@ -10,16 +12,20 @@ const App = () => {
   const [user, setUser] = useState();
 
   return (
-    <BrowserRouter className="App">
-      <Routes>
-        <Route path="/" element={<Login setter={setUser} user={user} />} />
-        <Route path="/home" element={<Home user={user} />} />
-        <Route path="/feed" element={<Feed user={user} />} />
-        <Route
-          path="/profile"
-          element={<Profile setter={setUser} user={user} />}
-        />
-      </Routes>
+    <BrowserRouter>
+      <div className="App">
+        <h1>Blimpstagram</h1>
+
+        <Routes>
+          <Route path="/" element={<Login setter={setUser} user={user} />} />
+          <Route path="/home" element={<Home user={user} />} />
+          <Route path="/feed" element={<Feed user={user} />} />
+          <Route
+            path="/profile"
+            element={<Profile setter={setUser} user={user} />}
+          />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };

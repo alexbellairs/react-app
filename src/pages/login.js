@@ -1,26 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { signUp } from "../utils";
+import { signUp, tokenFetch } from "../utils";
 
-const Login = ({ setter, user }) => {
+const Login = ({ user, setter }) => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [logBool, setLogBool] = useState(false);
 
+  useEffect(() => {
+    if (localStorage.key("myToken")) {
+      tokenFetch(setter);
+    }
+  }, []);
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    await signUp(username, email, password, setter);
+    await signUp({ username, email, password }, setter);
   };
 
   return (
     <div>
       {user && <Navigate to="/home" />}
       <form onSubmit={submitHandler}>
-        <input onChange={() => setUsername} placeholder="Username" />
-        {!logBool && <input onChange={() => setEmail} placeholder="Email" />}
         <input
-          onChange={() => setPassword}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
+        />
+        {!logBool && (
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+          />
+        )}
+        <input
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           type="password"
         />

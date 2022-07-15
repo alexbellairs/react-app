@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { fetchPhotos } from "../utils";
 import Image from "../components/image";
+import Navbar from "../components/navbar";
 
-const Feed = ({ user }) => {
+const Feed = ({ user, setter }) => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
@@ -11,7 +12,8 @@ const Feed = ({ user }) => {
 
   return (
     <div>
-      <h1>{user}</h1>
+      <Navbar user={user} setter={setter} />
+      <h1>{user}Feed</h1>
       {photos.map((item, i) => {
         return <Image key={i} author={item.author} url={item.download_url} />;
       })}
