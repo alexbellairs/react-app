@@ -54,7 +54,6 @@ export const tokenFetch = async (setter) => {
 
 export const updateFetch = async (filterObj, updateObj, setter) => {
   try {
-    console.log(filterObj, updateObj);
     const res = await fetch(`${process.env.REACT_APP_REST_API}user`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -63,12 +62,13 @@ export const updateFetch = async (filterObj, updateObj, setter) => {
         updateObj,
       }),
     });
+    console.log(filterObj, updateObj);
     const data = await res.json();
     if (data.msg !== "Successfully Updated") {
       throw new Error(data.msg);
     }
-    if (updateObj.username) {
-      setter(updateObj.username);
+    if (updateObj.email) {
+      setter(updateObj.email);
     }
   } catch (error) {
     console.log(error);
