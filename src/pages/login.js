@@ -12,7 +12,7 @@ const Login = ({ user, setter }) => {
     if (localStorage.key("myToken")) {
       tokenFetch(setter);
     }
-  });
+  }, []);
 
   const submitHandler = async (e) => {
     e.preventDefault();
