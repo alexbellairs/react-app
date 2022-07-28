@@ -7,7 +7,7 @@ const Home = ({ user, setter }) => {
       <Navbar user={user} setter={setter} />
       <h1>Home Page</h1>
       <h2>Welcome {user}</h2>
-      <img className="blimp" src={blimpImg} />
+      <img className="blimp" src={blimpImg} alt="" />
     </div>
   );
 };
